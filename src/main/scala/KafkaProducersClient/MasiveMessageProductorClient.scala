@@ -8,7 +8,7 @@ import org.apache.kafka.common.serialization.StringSerializer
 
 object MasiveMessageProductorClient extends App {
   println("VM arguemtns :")
-  println("-Dbrokers=localhost:9092 -Dsleep=0 -Dthreads=5 -DlimitMessages=100000 -DbroadPath=data-streams.txt -DinputTopic=conf-cloud-com-bcp-shcl-notification-salary-advance")
+  println("-Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -Dsleep=1 -Dthreads=2 -DlimitMessages=100 -DbroadPath=data-streams.txt -DinputTopic=mx-transaction-input")
   private val threads = sys.props.get("threads").get
   println("threads : " + threads + " number of threads")
   private val brokers = sys.props.get("brokers").get

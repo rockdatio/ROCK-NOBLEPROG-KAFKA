@@ -9,6 +9,7 @@ val kafkaVersion = "2.8.1"
 //val kafkaVersion = "0.10.0.0"
 val scala_Version = "2.12.13"
 
+libraryDependencies += "com.google.code.gson" % "gson" % "2.8.5"
 
 libraryDependencies ++= Seq(
   //"org.scala-lang" % "scala-library" % scala_Version,
@@ -20,12 +21,5 @@ libraryDependencies ++= Seq(
   "com.mashape.unirest" % "unirest-java" % "1.4.9",
   "log4j" % "log4j" % "1.2.14"
 )
-//Compile / mainClass  := Some("KafkaStreamsPoc.ConsumerKstreams")
-//assembly / mainClass := Some("KafkaStreamsPoc.ConsumerKstreams")
-//
-//assemblyMergeStrategy in assembly := {
-//  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-//  case x => MergeStrategy.first
-//}
 
 
