@@ -14,4 +14,10 @@ object BaseFunctions extends Serializable {
     val x: JsonObject = gson.fromJson(record, classOf[JsonObject])
     x
   }
+
+  def getAmountRandom(start: Int, end: Int): Int = {
+    val rnd = new scala.util.Random
+    val result: Int = start + rnd.nextInt((end - start) + 1)
+    result
+  }
 }

@@ -1,5 +1,7 @@
 package KafkaProducersClient
 
+import java.time.format.DateTimeFormatter
+import java.time.{LocalDateTime, LocalTime, ZoneId}
 import java.util.Properties
 
 import Utils.BaseFunctions
@@ -11,9 +13,7 @@ import org.apache.kafka.common.serialization.StringSerializer
 
 object ProducerPowerBi extends App {
   println("VM arguemtns :")
-  println("-Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -DinputTopic=mx-transaction-input")
-  println("VM arguemtns :")
-  println("-Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -Dsleep=1 -Dthreads=2 -DlimitMessages=100 -DbroadPath=data-streams.txt -DinputTopic=mx-transaction-input")
+  println("-Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -Dsleep=1 -DlimitMessages=100 -DbroadPath=data-streams.txt -DinputTopic=mx-transaction-input")
   private val brokers = sys.props.get("brokers").get
   println("brokers : " + brokers)
   private val inputTopic = sys.props.get("inputTopic").get
@@ -49,12 +49,17 @@ object ProducerPowerBi extends App {
           limit += 1
           println(limit)
           Thread.sleep(sleep.toInt)
-          println(message)
-//          val mes: JsonObject = BaseFunctions.getJson(message)
+          val jsonRecord = BaseFunctions.getJson(message)
+          jsonRecord.addProperty("transaction_date",
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now))
+          jsonRecord.remove("amount")
+          jsonRecord.addProperty("amount", BaseFunctions.getAmountRandom(100,5000))
+
+          println(jsonRecord)
           Unirest
-            .post("https://api.powerbi.com/beta/c4a66c34-2bb7-451f-8be1-b2c26a430158/datasets/d7888ac7-012d-4861-a3bd-c5c75f4e9ccd/rows?key=78W8lYzTYK6wT26Oa5HeZqVbV4Pb%2Fl6LxEtl0ixyOL88Xjpctpf%2Be83oQKCXi4MPCRE7paufv0wynsN1jLBC%2Fw%3D%3D")
+            .post("https://api.powerbi.com/beta/5d93ebcc-f769-4380-8b7e-289fc972da1b/datasets/173bfc77-2eae-4762-9fa2-30bbdd0057a2/rows?key=mVOpNPkldfd76tIlof0TV0sl7Ec14RNXjl9VfhFLxsmlJVJ3o3VInMfCwEgioq95tI2C%2Fs4JOYQV8wJKBiJMjQ%3D%3D")
             .header("Content-Type", "application/json")
-            .body(message)
+            .body(jsonRecord.toString)
             .asJsonAsync()
 
           val record: ProducerRecord[String, String] = new ProducerRecord[String, String](inputTopic, message)

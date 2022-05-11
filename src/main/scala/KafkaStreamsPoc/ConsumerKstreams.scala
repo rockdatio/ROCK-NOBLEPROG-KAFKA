@@ -12,7 +12,7 @@ import org.apache.kafka.streams.{KafkaStreams, StreamsConfig}
 
 object ConsumerKstreams {
   println("VM arguemtns :")
-  println("-DinputTopic=inputTopic -DoutputTopic=outputTopic -Dbrokers=0.0.0.0:9091,0.0.0.0:9092,0.0.0.0:9093 -DgroupId=test -DautoOffsetReset=latest")
+  println("-DinputTopic=inputTopic -DoutputTopic=outputTopic -Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -DgroupId=test -DautoOffsetReset=latest")
 
   private val brokers = sys.props.get("brokers").get
   println("brokers : " + brokers)
