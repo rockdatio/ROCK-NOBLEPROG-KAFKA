@@ -12,7 +12,7 @@ import org.apache.kafka.common.KafkaFuture.BaseFunction
 import org.apache.kafka.common.serialization.StringSerializer
 
 object ProducerPowerBi extends App {
-  println("VM arguemtns :")
+  println("ProducerPowerBi VM arguemtns :")
   println("-Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -Dsleep=1 -DlimitMessages=100 -DbroadPath=data-streams.txt -DinputTopic=mx-transaction-input")
   private val brokers = sys.props.get("brokers").get
   println("brokers : " + brokers)

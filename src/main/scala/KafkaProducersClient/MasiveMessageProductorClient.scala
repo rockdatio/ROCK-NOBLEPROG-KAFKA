@@ -7,7 +7,7 @@ import org.apache.kafka.common.serialization.StringSerializer
 //import org.apache.log4j.Logger
 
 object MasiveMessageProductorClient extends App {
-  println("VM arguemtns :")
+  println("MasiveMessageProductorClient VM arguemtns :")
   println("-Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -Dsleep=1 -Dthreads=2 -DlimitMessages=100 -DbroadPath=data-streams.txt -DinputTopic=mx-transaction-input")
   private val threads = sys.props.get("threads").get
   println("threads : " + threads + " number of threads")

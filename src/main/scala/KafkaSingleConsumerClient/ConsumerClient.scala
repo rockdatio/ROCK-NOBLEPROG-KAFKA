@@ -9,7 +9,7 @@ import org.apache.kafka.common.serialization.StringDeserializer
 import scala.collection.JavaConverters._
 
 object ConsumerClient {
-  println("Vm arguments :")
+  println("ConsumerClient Vm arguments :")
   println("-DinputTopic=mx-transaction -Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -DgroupId=test -DautoOffsetReset=latest")
   private val brokers = sys.props.get("brokers").get
   println("brokers : " + brokers)

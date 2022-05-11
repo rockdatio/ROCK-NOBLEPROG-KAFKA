@@ -8,7 +8,7 @@ class KafkaPropertiesClient {
   def printIntroduction(): Unit = {
     println("**" * 52)
     println("**" * 20)
-    println("Menú de opciones : ")
+    println("KafkaAdmin Menú de opciones : ")
     println("**" * 20)
     println("VM arguemtns :")
     println("-DinputTopic=mx-transaction -Dbrokers=localhost:9092 -Doption=1 -Dpartitions=1 -DreplicationFactor=1")

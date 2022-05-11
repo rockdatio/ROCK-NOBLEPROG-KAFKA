@@ -8,7 +8,7 @@ import org.apache.kafka.common.serialization.StringDeserializer
 //import org.apache.log4j.Logger
 
 object GroupConsumerClient extends App {
-  println("VM arguemtns :")
+  println("MultipleConsumerClient VM arguemtns :")
   println("-DinputTopic=inputTopic -Dthreads=4 -Dbrokers=0.0.0.0:9091,0.0.0.0:9092,0.0.0.0:9093 -DgroupId=test -DautoOffsetReset=latest")
   private val threads = sys.props.get("threads").get
   println("threads : " + threads)
