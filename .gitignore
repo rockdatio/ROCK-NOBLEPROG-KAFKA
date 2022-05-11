@@ -18,7 +18,7 @@ project/metals.sbt
 project/project/
 project/target/
 target/
-out/*
+out/
 # eclipse
 build/
 .classpath
