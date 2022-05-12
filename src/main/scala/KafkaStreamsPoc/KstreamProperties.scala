@@ -10,6 +10,7 @@ class KstreamProperties(brokers: String) {
     p.put(StreamsConfig.APPLICATION_ID_CONFIG, kstreamApp)
     p.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, brokers)
     p.put(StreamsConfig.SECURITY_PROTOCOL_CONFIG, "PLAINTEXT")
+//    p.put(StreamsConfig.OPTIMIZE, "ALL")
     p
   }
 }
