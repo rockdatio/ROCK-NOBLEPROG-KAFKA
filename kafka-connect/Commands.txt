@@ -15,6 +15,14 @@ connect-distributed /tmp/data/connect-distributed.properties
 
 Probar con kafka1 kafka2 o kafka3 por problemas de intermitencia
 curl -X POST -H "Content-Type: application/json" http://kafka1:8083/connectors --data @/tmp/data/connect-file-sink.json
+### Listing connectors curl -XGET localhost:8083/connectors
+curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors
+curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors/file-sink-test
+curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors/file-sink-test/tasks
+curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors/file-sink-test/tasks/0/status
+
+## SCHEMA
+curl -X GET -H "Content-Type: application/json" http://kafka1:8081/subjects
 
 *** PASO OPCIONAL SI ESTA MAL EL CONNECTOR INSTACIADO DEL PASO ANTERIOR ***
 curl -X DELETE http://kafka1:8083/connectors/file-sink-test

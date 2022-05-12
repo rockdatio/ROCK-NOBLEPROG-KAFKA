@@ -30,12 +30,11 @@ Attach any broker
 ```sql
 docker exec -it 8cfa6bf67679 bash
 ```
-
-
+## Create a kafka topic
 ```sql
 kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic file-sink-test --create --replication-factor 3 --partitions 3
 ```
-
+Create a connector
 
 ```sql
 connect-distributed /tmp/data/connect-distributed.properties
@@ -53,6 +52,15 @@ curl -X DELETE http://kafka1:8083/connectors/file-sink-test
 ```sql
 kafka-console-producer --broker-list kafka1:19092,kafka2:19093,kafka3:19094 --topic file-sink-test
 ```
+### Listing directly connectors curl -XGET localhost:8083/connectors
+```sql
+curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors
+curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors/file-sink-test
+curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors/file-sink-test/tasks
+curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors/file-sink-test/tasks/0/status
+```
 
+## SCHEMA
+curl -X GET -H "Content-Type: application/json" http://kafka1:8081/subjects
 
 
