@@ -19,7 +19,8 @@ libraryDependencies ++= Seq(
   "org.apache.kafka" %% "kafka-streams-scala" % kafkaVersion,
   "org.asynchttpclient" % "async-http-client" % "2.4.5",
   "com.mashape.unirest" % "unirest-java" % "1.4.9",
-  "log4j" % "log4j" % "1.2.14"
+  "log4j" % "log4j" % "1.2.14",
+  "org.apache.commons" % "commons-lang3" % "3.12.0"
 )
 
 

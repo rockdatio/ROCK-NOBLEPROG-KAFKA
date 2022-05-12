@@ -12,7 +12,6 @@ services:
       ZOOKEEPER_SERVER_ID: 1
       ZOOKEEPER_SERVERS: zoo1:2888:3888
     volumes:
-      - ./docker/kafka/zk:/var/lib/zookeeper/data
       - ./data:/tmp/data
 
   kafka1:
@@ -31,7 +30,6 @@ services:
       KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     volumes:
-      - ./docker/kafka/broker-1:/var/lib/kafka/data
       - ./data:/tmp/data
     depends_on:
       - zoo1
@@ -52,7 +50,6 @@ services:
       KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     volumes:
-      - ./docker/kafka/broker-2:/var/lib/kafka/data
       - ./data:/tmp/data
     depends_on:
       - zoo1
@@ -73,7 +70,6 @@ services:
       KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     volumes:
-      - ./docker/kafka/broker-3:/var/lib/kafka/data
       - ./data:/tmp/data
     depends_on:
       - zoo1

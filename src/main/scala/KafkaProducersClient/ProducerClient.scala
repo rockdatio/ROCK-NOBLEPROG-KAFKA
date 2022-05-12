@@ -8,7 +8,7 @@ import org.apache.kafka.common.serialization.StringSerializer
 import scala.io.StdIn
 
 object ProducerClient extends App {
-  println("VM arguemtns :")
+  println("***** ProducerClient VM arguemtns : ")
   println("-Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -DinputTopic=mx-transaction-input")
   private val brokers = sys.props.get("brokers").get
   println("brokers : " + brokers)
