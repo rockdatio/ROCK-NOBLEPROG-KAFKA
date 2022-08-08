@@ -15,6 +15,7 @@ connect-distributed /tmp/data/connect-distributed.properties
 
 Probar con kafka1 kafka2 o kafka3 por problemas de intermitencia
 curl -X POST -H "Content-Type: application/json" http://kafka1:8083/connectors --data @/tmp/data/connect-file-sink.json
+
 ### Listing connectors curl -XGET localhost:8083/connectors
 curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors
 curl -X GET -H "Content-Type: application/json" http://kafka1:8083/connectors/file-sink-test
@@ -33,5 +34,9 @@ kafka-console-producer --broker-list kafka1:19092,kafka2:19093,kafka3:19094 --to
 cat /tmp/data/file-sink-test.txt
 tail -f /tmp/data/file-sink-test.txt
 
+
+kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic partitions-demo --from-beginning --partition 0
+kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic partitions-demo --from-beginning --partition 1
+kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic partitions-demo --from-beginning --partition 2
 
 

@@ -31,7 +31,8 @@ object ProducerClient extends App {
   var message = StdIn.readLine()
   while (!message.equals("exit")) {
     message = StdIn.readLine()
-    val record = new ProducerRecord[String, String](inputTopic, "1", message)
+//    val record = new ProducerRecord[String, String](inputTopic, "1", message)
+    val record = new ProducerRecord[String, String](inputTopic, message)
     producer.send(record)
   }
   producer.close()

@@ -2,7 +2,7 @@ package KafkaStreamsPoc
 
 import java.util.concurrent.TimeUnit
 
-import org.apache.kafka.streams.kstream.Materialized
+import org.apache.kafka.streams.kstream.{Materialized, Named}
 import org.apache.kafka.streams.scala.ImplicitConversions._
 import org.apache.kafka.streams.scala.Serdes._
 import org.apache.kafka.streams.scala._
@@ -27,10 +27,12 @@ object WordCountKstreams extends InitClass {
         })
 
     val wordCounts2: KGroupedStream[String, String] = wordCounts
-      .groupBy((_, word) => word)
+      .groupBy((key, value) => value) // selector a function that computes a new KEY   for grouping
 
     val wordCount3: KTable[String, Long] = wordCounts2
-      .count()(Materialized.as("counts-store"))
+      .count(Named.as("CountView"))(Materialized.as("counts-store-mx")) // Setting state store name*(Implicit Convertion)
+    // The result is written into a local `KeyValueStore` (which is basically an ever-updating materialized view)
+//      .count()(Materialized.`with`(Serdes.String, Serdes.Long)) // Internal name, typed convertions
 
     wordCount3.toStream.to(outputTopic)
 

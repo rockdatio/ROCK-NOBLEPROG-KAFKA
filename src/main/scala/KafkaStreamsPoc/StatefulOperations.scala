@@ -21,12 +21,11 @@ object StatefulOperations extends InitClass {
     val consumed: Consumed[String, String] = Consumed.`with`[String, String]
     val produced: Produced[String, Double] = Produced.`with`[String, Double]
 
-
     val domesticRetailStreamData: KStream[String, String] = builder.stream(inputTopic)(consumed)
     domesticRetailStreamData.peek((key, value) => println("Incoming record - key: {" + key + "} , value: {" + value + "}"))
 
-    val windowSize = Duration.ofSeconds(20)
-    val tumblingWindow = TimeWindows.of(windowSize)
+    val windowSize: Duration = Duration.ofSeconds(20)
+    val tumblingWindow: TimeWindows = TimeWindows.of(windowSize)
 
     val domesticDepartmentSalesRevenue: KTable[Windowed[String], Double] = domesticRetailStreamData
       .map((_, value) => (
@@ -51,7 +50,7 @@ object StatefulOperations extends InitClass {
             value,
             ",",
             4)).toDouble
-      ))
+      )).peek((key, value) => println(key,value))
       .groupByKey(Grouped.`with`[String, Double])
       .windowedBy(tumblingWindow)
       .reduce((v1, v2) => v1 + v2)

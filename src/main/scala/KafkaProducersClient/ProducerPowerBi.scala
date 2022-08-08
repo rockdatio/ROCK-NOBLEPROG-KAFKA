@@ -49,7 +49,7 @@ object ProducerPowerBi extends App {
           limit += 1
           println(limit)
           Thread.sleep(sleep.toInt)
-          val jsonRecord = BaseFunctions.getJson(message)
+          val jsonRecord: JsonObject = BaseFunctions.getJson(message)
           jsonRecord.addProperty("transaction_date",
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now))
           jsonRecord.remove("amount")

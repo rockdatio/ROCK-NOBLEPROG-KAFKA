@@ -15,7 +15,7 @@ CREATE STREAM riderLocations (profileId VARCHAR, latitude DOUBLE, longitude DOUB
 ############################################################################
 # validemos que se haya creado correctamente.
 SELECT * FROM riderLocations
- EMIT CHANGES;
+EMIT CHANGES;
 
 ############################################################################
 # Creamos materialized views
