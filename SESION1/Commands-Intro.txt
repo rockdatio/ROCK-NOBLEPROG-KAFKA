@@ -1,0 +1,17 @@
+INTRODUCCIÓN COMMANDS
+# CREACIÓN DE TOPICOS POR DEFAULT
+kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --create
+# CREACIÓN DE TOPICOS  PERSONALIZADO
+kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class2 --partitions 3 --replication-factor --create
+# DESCRIPCIÓN DEL TÓPICO
+kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic powerbi-sql-server --describe
+# LISTADO DE TOPICOS
+kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --list
+# CREACIÓN DE PRODUCTORES
+kafka-console-producer --broker-list kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class
+# CREACIÓN DE 1 CONSUMIDOR
+kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class
+#  ALTER TOPIC
+kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime --alter --partitions 10
+#  DELETE TOPIC
+kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime --delete
