@@ -18,6 +18,7 @@ kafka-console-producer --broker-list kafka1:19092,kafka2:19093,kafka3:19094 --to
 kafka-console-producer --broker-list kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class < /tmp/data/zipcodes.csv
 # CREACIÓN DE 1 CONSUMIDOR
 kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class
+kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --from-beginning
 # CONSUMIR MENSAGES POR PARTICION
 kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --partition 0 --from-beginning
 kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --partition 1 --from-beginning

@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: KafkaSingleConsumerClient.ConsumerClient
+Main-Class: KafkaProducersClient.OnlyTestProducerClient

@@ -1,0 +1,18 @@
+INTRODUCCIÓN COMMANDS
+
+kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --partitions 3 --replication-factor 3 --create
+# JAR EXECUTION MASSIVE MESSAGE MULTI THREAD
+java -Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -Dsleep=1 -Dthreads=3 -DlimitMessages=100 -DbroadPath=/tmp/data/data-streams.txt -DinputTopic=mx-transaction-input -jar /tmp/data/MasiveMessageProductorClient.jar
+
+# 1 PRODUCER CLIENT WITHOUT KEY
+java -Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -Dsleep=0 -DlimitMessages=100 -DbroadPath=/tmp/data/data-streams.txt -DinputTopic=realtime-class -jar /tmp/data/O
+nlyTestProducerClient.jar
+kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --from-beginning
+
+# 1 PRODUCER CLIENT WITH A KEY
+java -Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -Dsleep=0 -DlimitMessages=100 -DbroadPath=/tmp/data/data-streams.txt -DinputTopic=realtime-class -jar /tmp/data/O
+nlyTestProducerClient.jar
+kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --from-beginning
+
+# CONSUMER ANATOMY
+java -DinputTopic=realtime-class -Dbrokers=kafka1:19092,kafka2:19093,kafka3:19094 -DgroupId=test3 -DautoOffsetReset=earliest -jar /tmp/data/ConsumerClientAnatomy.jar
