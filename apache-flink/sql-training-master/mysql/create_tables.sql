@@ -1,1 +1,0 @@
-CREATE TABLE AreaCnts (areaId INT NOT NULL, cnt BIGINT NOT NULL, PRIMARY KEY (areaId));
