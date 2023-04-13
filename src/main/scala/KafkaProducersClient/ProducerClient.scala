@@ -22,6 +22,12 @@ object ProducerClient extends App {
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, classOf[StringSerializer].getCanonicalName)
     //    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, classOf[IntegerSerializer].getCanonicalName)
     //    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, classOf[LongSerializer].getCanonicalName)
+//    props.put("kafkastore.security.protocol", "ssl")
+//    props.put("kafkastore.ssl.truststore.location", "ssl_truststore_location")
+//    props.put("kafkastore.ssl.truststore.password", "ssl_truststore_password")
+//    props.put("kafkastore.ssl.keystore.location", "ssl_keystore_location")
+//    props.put("kafkastore.ssl.keystore.password", "ssl_keystore_password")
+//    props.put("kafkastore.ssl.key.password", "ssl_keystore_password")
     props
   }
 

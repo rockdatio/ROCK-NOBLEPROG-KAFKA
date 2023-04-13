@@ -10,7 +10,7 @@ kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --list
 #  ALTER TOPIC
 kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --alter --partitions 10
 # ALTER REPLICATIONS FACTOR
-kafka-reassign-partitions --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094  --reassignment-json-file /tmp/data/increase-replication-factor.json --execute
+kafka-reassign-partitions --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --reassignment-json-file /tmp/data/increase-replication-factor.json --execute
 #  DELETE TOPIC
 kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --delete
 
@@ -18,8 +18,9 @@ kafka-topics --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic r
 # CREACIÓN DE PRODUCTORES
 kafka-console-producer --broker-list kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class
 kafka-console-producer --broker-list kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class < /tmp/data/zipcodes.csv
-# CREACIÓN DE 1 CONSUMIDOR
+# CREACIÓN DE 1 CONSUMIDOR LATEST BY DEAFULT
 kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class
+# CREACIÓN DE 1 CONSUMIDOR
 kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --from-beginning
 kafka-console-consumer --bootstrap-server kafka1:19092,kafka2:19093,kafka3:19094 --topic realtime-class --from-beginning --group test
 # CONSUMIR MENSAGES POR PARTICION

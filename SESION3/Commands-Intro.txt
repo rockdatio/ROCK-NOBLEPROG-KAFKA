@@ -1,0 +1,3 @@
+MOVE TO
+cd cp-all-in-one
+docker compose up

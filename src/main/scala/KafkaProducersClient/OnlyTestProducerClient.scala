@@ -38,14 +38,14 @@ object OnlyTestProducerClient {
     //    val broadList: Array[String] = reader.readBroad(broadPath)
     val broadList: Array[String] = reader.readBroad("C:\\workspace\\workspace\\ROCK-NOBLEPROG-KAFKA\\src\\main\\resources\\data-streams.txt")
     var limit = 0
-    val until = 1000000
+    val until = 10000
     broadList.foreach(println(_))
 
     while (limit < until) {
       broadList.foreach {
         message => {
           limit += 1
-          Thread.sleep(2000)
+//          Thread.sleep(2000)
           val jsonRecord: JsonObject = BaseFunctions.getJson(message)
           jsonRecord.addProperty("transaction_date",
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now))
@@ -64,7 +64,7 @@ object OnlyTestProducerClient {
                 val offset = recordMetadata.offset()
                 val partition = recordMetadata.partition()
                 val key = recordMetadata.topic()
-                println(s"record is sent to kafka:topic=$inputTopic, partition=$partition, offset=$offset");
+                println(s"record has already sent to kafka:topic=$inputTopic, partition=$partition, offset=$offset");
               }
             }
           })

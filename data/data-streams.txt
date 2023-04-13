@@ -1,0 +1,5 @@
+{"card_number":"16151515","transaction_type":"pos","transaction_date":"2020-07-23 20:48:56.345","phone_number":"940023516","amount":20.00}
+{"card_number":"26151616","transaction_type":"deposito","transaction_date":"2020-07-23 20:49:56.345","phone_number":"940023516","amount":5256.00}
+{"card_number":"77140888","transaction_type":"prestamos","transaction_date":"2020-07-23 20:50:56.345","phone_number":"940023516","amount":689.00}
+{"card_number":"65979894","transaction_type":"prestamos","transaction_date":"2020-07-23 20:51:56.345","phone_number":"940023516","amount":9789.00}
+{"card_number":"989884561","transaction_type":"prestamos","transaction_date":"2020-07-23 20:52:56.345","phone_number":"940023516","amount":50.00}

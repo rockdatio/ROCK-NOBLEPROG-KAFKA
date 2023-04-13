@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "partitions": [
+    {
+      "topic": "realtimeclassdmc3",
+      "partition": 0,
+      "replicas": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "realtimeclassdmc3",
+      "partition": 1,
+      "replicas": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "realtimeclassdmc3",
+      "partition": 2,
+      "replicas": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "realtimeclassdmc3",
+      "partition": 3,
+      "replicas": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "realtimeclassdmc3",
+      "partition": 4,
+      "replicas": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "realtimeclassdmc3",
+      "partition": 5,
+      "replicas": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "topic": "realtimeclassdmc3",
+      "partition": 6,
+      "replicas": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

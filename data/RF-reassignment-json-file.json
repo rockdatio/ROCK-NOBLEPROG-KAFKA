@@ -1,0 +1,4 @@
+{"version":1,
+  "partitions":[
+     {"topic":"realtime-class","partition":0,"replicas":[1,2,3]}
+]}

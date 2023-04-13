@@ -7,7 +7,6 @@
 # metals
 project/metals.sbt
 .metals
-data/
 docker
 # vs code
 .vscode
@@ -46,5 +45,3 @@ bin/
 
 #general
 *.class
-./data/*
-./data/
